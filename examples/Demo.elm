@@ -1,7 +1,7 @@
 module Demo exposing (..)
 
 import Html exposing (..)
-import Html.Attributes exposing (style)
+import Html.Attributes exposing (style, class)
 import Trees exposing (ID, Tree, trees)
 import Autoinput
 
@@ -54,6 +54,7 @@ config =
         , search = searchConfig
         , toString = (\item -> item.commonName ++ " (" ++ item.scientificName ++ ")")
         , menuId = "tree-menu"
+        , inputAttributes = { attributes = [ class "custom-class" ], style = [] }
         , menuItemStyle =
             (\selected ->
                 if selected then

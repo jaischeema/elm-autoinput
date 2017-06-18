@@ -578,9 +578,10 @@ config :
     , toString : item -> String
     , menuId : String
     , menuItemStyle : Bool -> List ( String, String )
+    , inputAttributes : HtmlAttributeDetails
     }
     -> Config item
-config { howMany, search, toString, menuId, menuItemStyle } =
+config { howMany, search, toString, menuId, menuItemStyle, inputAttributes } =
     let
         menuItem_ selected item =
             { attributes = []
@@ -592,7 +593,7 @@ config { howMany, search, toString, menuId, menuItemStyle } =
             { howMany = howMany
             , search = search
             , toString = toString
-            , input = defaultInput
+            , input = inputAttributes
             , menuId = menuId
             , menuConfig = Menu.defaultConfig |> Menu.menuItem menuItem_
             }
